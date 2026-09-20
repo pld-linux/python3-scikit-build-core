@@ -1,21 +1,23 @@
 Summary:	Build backend for CMake based projects
 Name:		python3-scikit-build-core
-Version:	0.11.1
+Version:	1.0.3
 Release:	1
-License:	Apache v2
+License:	Apache v2.0, parts MIT (vendored pyproject_metadata)
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/scikit-build-core/
 Source0:	https://files.pythonhosted.org/packages/source/s/scikit_build_core/scikit_build_core-%{version}.tar.gz
-# Source0-md5:	b1d6f9b26e8a9cfc23ee84dfb5ee5759
+# Source0-md5:	f1272c656f44f0b95b3c6bc31910cfc7
 URL:		https://github.com/scikit-build/scikit-build-core
 BuildRequires:	python3 >= 1:3.8
 BuildRequires:	python3-build
-BuildRequires:	python3-hatch-vcs
-BuildRequires:	python3-hatchling
+BuildRequires:	python3-hatch-vcs >= 0.4
+BuildRequires:	python3-hatchling >= 1.24
 BuildRequires:	python3-installer
 BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	rpmbuild(macros) >= 2.044
 Requires:	python3-modules >= 1:3.8
+Requires:	python3-packaging >= 23.2
+Requires:	python3-pathspec >= 0.12.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,6 +46,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
+%attr(755,root,root) %{_bindir}/scikit-build
+%attr(755,root,root) %{_bindir}/scikit-build-core
 %dir %{py3_sitescriptdir}/scikit_build_core
 %{py3_sitescriptdir}/scikit_build_core/*.py
 %{py3_sitescriptdir}/scikit_build_core/*.pyi
@@ -55,11 +59,15 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/scikit_build_core/_compat/importlib
 %{py3_sitescriptdir}/scikit_build_core/_compat/importlib/*.py
 %{py3_sitescriptdir}/scikit_build_core/_compat/importlib/__pycache__
+%dir %{py3_sitescriptdir}/scikit_build_core/_compat/setuptools
+%{py3_sitescriptdir}/scikit_build_core/_compat/setuptools/*.py
+%{py3_sitescriptdir}/scikit_build_core/_compat/setuptools/__pycache__
 %dir %{py3_sitescriptdir}/scikit_build_core/_vendor
 %dir %{py3_sitescriptdir}/scikit_build_core/_vendor/pyproject_metadata
 %{py3_sitescriptdir}/scikit_build_core/_vendor/pyproject_metadata/*.py
 %{py3_sitescriptdir}/scikit_build_core/_vendor/pyproject_metadata/__pycache__
 %{py3_sitescriptdir}/scikit_build_core/_vendor/pyproject_metadata/py.typed
+%{py3_sitescriptdir}/scikit_build_core/_vendor/pyproject_metadata/LICENSE
 %dir %{py3_sitescriptdir}/scikit_build_core/ast
 %{py3_sitescriptdir}/scikit_build_core/ast/*.py
 %{py3_sitescriptdir}/scikit_build_core/ast/__pycache__
@@ -78,6 +86,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py3_sitescriptdir}/scikit_build_core/hatch
 %{py3_sitescriptdir}/scikit_build_core/hatch/*.py
 %{py3_sitescriptdir}/scikit_build_core/hatch/__pycache__
+%dir %{py3_sitescriptdir}/scikit_build_core/init
+%{py3_sitescriptdir}/scikit_build_core/init/*.py
+%{py3_sitescriptdir}/scikit_build_core/init/__pycache__
 %dir %{py3_sitescriptdir}/scikit_build_core/metadata
 %{py3_sitescriptdir}/scikit_build_core/metadata/*.py
 %{py3_sitescriptdir}/scikit_build_core/metadata/__pycache__
@@ -86,13 +97,15 @@ rm -rf $RPM_BUILD_ROOT
 %{py3_sitescriptdir}/scikit_build_core/resources/__pycache__
 %{py3_sitescriptdir}/scikit_build_core/resources/known_wheels.toml
 %{py3_sitescriptdir}/scikit_build_core/resources/scikit-build.schema.json
-%dir %{py3_sitescriptdir}/scikit_build_core/resources/find_python
-%{py3_sitescriptdir}/scikit_build_core/resources/find_python/*.py
-%{py3_sitescriptdir}/scikit_build_core/resources/find_python/__pycache__
+%{py3_sitescriptdir}/scikit_build_core/resources/find_python
+%{py3_sitescriptdir}/scikit_build_core/resources/templates
 %dir %{py3_sitescriptdir}/scikit_build_core/settings
 %{py3_sitescriptdir}/scikit_build_core/settings/*.py
 %{py3_sitescriptdir}/scikit_build_core/settings/__pycache__
 %dir %{py3_sitescriptdir}/scikit_build_core/setuptools
 %{py3_sitescriptdir}/scikit_build_core/setuptools/*.py
 %{py3_sitescriptdir}/scikit_build_core/setuptools/__pycache__
+%dir %{py3_sitescriptdir}/scikit_build_core/utils
+%{py3_sitescriptdir}/scikit_build_core/utils/*.py
+%{py3_sitescriptdir}/scikit_build_core/utils/__pycache__
 %{py3_sitescriptdir}/scikit_build_core-%{version}.dist-info
