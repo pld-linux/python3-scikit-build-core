@@ -1,4 +1,5 @@
 Summary:	Build backend for CMake based projects
+Summary(pl.UTF-8):	Backend budowania dla projektów opartych na CMake
 Name:		python3-scikit-build-core
 Version:	1.0.3
 Release:	1
@@ -16,8 +17,6 @@ BuildRequires:	python3-installer
 BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	rpmbuild(macros) >= 2.044
 Requires:	python3-modules >= 1:3.8
-Requires:	python3-packaging >= 23.2
-Requires:	python3-pathspec >= 0.12.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,6 +27,14 @@ configuration system in pyproject.toml, and supports almost unlimited
 flexibility via CMake. It was initially developed to support the
 demanding needs of scientific users, but can build any sort of package
 that uses CMake.
+
+%description -l pl.UTF-8
+scikit-build-core to backend budowania dla Pythona, wykorzystujący
+CMake do budowania modułów rozszerzen. Ma prosty, ale mający duże
+możliwości system konfiguracji w pyproject.toml, obsługuje prawie
+nieograniczoną elastyczność poprzez CMake. Początkowo powstał, aby
+sprostać potrzebom użytkowników naukowych, ale może budować dowolne
+rodzaje pakietów wykorzystujących CMake.
 
 %prep
 %setup -q -n scikit_build_core-%{version}
