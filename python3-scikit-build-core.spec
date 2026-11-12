@@ -1,22 +1,22 @@
 Summary:	Build backend for CMake based projects
 Summary(pl.UTF-8):	Backend budowania dla projektów opartych na CMake
 Name:		python3-scikit-build-core
-Version:	1.0.3
+Version:	1.1.2
 Release:	1
 License:	Apache v2.0, parts MIT (vendored pyproject_metadata)
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/scikit-build-core/
 Source0:	https://files.pythonhosted.org/packages/source/s/scikit_build_core/scikit_build_core-%{version}.tar.gz
-# Source0-md5:	f1272c656f44f0b95b3c6bc31910cfc7
+# Source0-md5:	41c02003f7ea10a6cb491684b30507ab
 URL:		https://github.com/scikit-build/scikit-build-core
-BuildRequires:	python3 >= 1:3.8
+BuildRequires:	python3 >= 1:3.9
 BuildRequires:	python3-build
 BuildRequires:	python3-hatch-vcs >= 0.4
 BuildRequires:	python3-hatchling >= 1.24
 BuildRequires:	python3-installer
-BuildRequires:	python3-modules >= 1:3.8
+BuildRequires:	python3-modules >= 1:3.9
 BuildRequires:	rpmbuild(macros) >= 2.044
-Requires:	python3-modules >= 1:3.8
+Requires:	python3-modules >= 1:3.9
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
